@@ -1,5 +1,5 @@
 #!/bin/bash
 
-set -euo pipefile
+set -euxo pipefile
 
-golangci-lint run --enable-all
+golangci-lint run
