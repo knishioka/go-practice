@@ -1,0 +1,6 @@
+name: 'Golang Lint'
+description: 'Lint for Golang'
+author: 'Kenichiro Nishioka'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

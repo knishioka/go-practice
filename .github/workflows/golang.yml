@@ -1,0 +1,12 @@
+name: Golang Workflow
+on: [push]
+
+jobs:
+  lint:
+    name: Golang Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Lint
+        uses: ./.github/actions/golang
