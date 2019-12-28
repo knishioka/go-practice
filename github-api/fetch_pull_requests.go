@@ -1,12 +1,19 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 )
+
+type IssueRequest struct {
+	IncompleteResults bool `json:"incomplete_results"`
+	TotalCount int `json:"total_count"`
+}
 
 func main() {
 	token := os.Getenv("GITHUB_TOKEN")
@@ -30,5 +37,11 @@ func main() {
 
 	defer resp.Body.Close()
 	byteArray, _ := ioutil.ReadAll(resp.Body)
-	fmt.Println(string(byteArray))
+
+	var issue_request IssueRequest
+	if err := json.Unmarshal(byteArray, &issue_request); err != nil {
+	    log.Fatal(err)
+	}
+	fmt.Println(issue_request.TotalCount)
+
 }
