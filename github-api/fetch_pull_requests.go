@@ -20,7 +20,6 @@ func main() {
 	query := fmt.Sprintf("org:%s+author:%s+merged:%s..%s", *org, *author, *start_date, *end_date)
 	end_point := "https://api.github.com/search/issues"
 	url := end_point + "?q=" + query + "&access_token=" + token
-	fmt.Println(url)
 
 	resp, err := http.Get(url)
 
