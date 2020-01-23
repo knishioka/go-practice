@@ -12,7 +12,7 @@ import (
 
 type IssueRequest struct {
 	IncompleteResults bool `json:"incomplete_results"`
-	TotalCount int `json:"total_count"`
+	TotalCount        int  `json:"total_count"`
 }
 
 func main() {
@@ -40,7 +40,7 @@ func main() {
 
 	var issue_request IssueRequest
 	if err := json.Unmarshal(byteArray, &issue_request); err != nil {
-	    log.Fatal(err)
+		log.Fatal(err)
 	}
 	fmt.Println(issue_request.TotalCount)
 
